@@ -1,0 +1,279 @@
+
+.navbar {
+  width: 100%;
+  background: #0b0c10;
+  border-bottom: 1px solid #252730;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.navbar-container {
+  width: 100%;
+  max-width: 1250px;
+  min-height: 58px;
+  margin: 0 auto;
+  padding: 0 20px;
+  box-sizing: border-box;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+/* Logo + FITLOG */
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+  text-decoration: none;
+}
+
+.navbar-logo img {
+  width: 17px;
+  height: 17px;
+  object-fit: contain;
+  display: block;
+}
+
+.navbar-logo span {
+  color: #f5f5f5;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+}
+
+/* Desktop Navigation */
+.navbar-menu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.nav-link {
+  color: #858791;
+  text-decoration: none;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 7px 13px;
+  border-radius: 20px;
+  transition: 0.2s ease;
+}
+
+.nav-link:hover {
+  color: #fff;
+  background: #1a1c22;
+}
+
+.nav-link.active {
+  color: #ccff00;
+  background: #1b2110;
+}
+
+/* Badges */
+.navbar-badges {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.nav-badge {
+  min-height: 23px;
+  padding: 0 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  border-radius: 20px;
+  font-size: 10px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: 0.2s ease;
+}
+
+.plan-badge {
+  color: #10120a;
+  background: #ccff00;
+  border: 1px solid #ccff00;
+}
+
+.plan-badge:hover {
+  background: #e0ff60;
+  border-color: #e0ff60;
+}
+
+.saved-badge {
+  color: #b7b9c2;
+  background: transparent;
+  border: 1px solid #343741;
+}
+
+.saved-badge:hover {
+  color: #ccff00;
+  border-color: #ccff00;
+}
+
+.nav-badge span {
+  font-size: 9px;
+  font-weight: 800;
+}
+
+/* Menu Button */
+.mobile-menu-button {
+  display: none;
+  width: 32px;
+  height: 32px;
+  padding: 7px;
+  border: 1px solid #292b32;
+  border-radius: 6px;
+  background: #15161b;
+  cursor: pointer;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+}
+
+.mobile-menu-button span {
+  width: 100%;
+  height: 2px;
+  background: #ccff00;
+  border-radius: 5px;
+  transition: 0.25s ease;
+}
+
+.mobile-menu-button.open span:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.mobile-menu-button.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.mobile-menu-button.open span:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+/* Dropdown */
+.mobile-menu {
+  display: none;
+}
+
+/* TABLET: 481px–990px */
+@media (min-width: 481px) and (max-width: 990px) {
+  .navbar-container {
+    min-height: 56px;
+    padding: 0 18px;
+  }
+
+  .navbar-logo img {
+    width: 17px;
+    height: 17px;
+  }
+
+  .navbar-logo span {
+    font-size: 11px;
+  }
+
+  .navbar-menu {
+    gap: 2px;
+  }
+
+  .nav-link {
+    font-size: 10px;
+    padding: 7px 10px;
+  }
+
+  .navbar-badges {
+    gap: 6px;
+  }
+
+  .nav-badge {
+    min-height: 22px;
+    padding: 0 8px;
+    font-size: 9px;
+  }
+}
+
+/* MOBILE: 480px and below */
+@media (max-width: 480px) {
+  .navbar-container {
+    min-height: 54px;
+    padding: 0 14px;
+  }
+
+  .navbar-logo {
+    gap: 5px;
+  }
+
+  .navbar-logo img {
+    width: 16px;
+    height: 16px;
+  }
+
+  .navbar-logo span {
+    font-size: 10px;
+  }
+
+  .navbar-menu,
+  .navbar-container > .navbar-badges {
+    display: none;
+  }
+
+  .mobile-menu-button {
+    display: flex;
+  }
+
+  .mobile-menu {
+    width: 100%;
+    padding: 0 14px;
+    box-sizing: border-box;
+    background: #0b0c10;
+    border-top: 1px solid #22242a;
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .mobile-menu.show {
+    display: flex;
+    padding-top: 12px;
+    padding-bottom: 14px;
+  }
+
+  .mobile-nav-link {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 11px 12px;
+    color: #a0a2ac;
+    font-size: 12px;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: 0.2s ease;
+  }
+
+  .mobile-nav-link:hover {
+    color: #fff;
+    background: #17191f;
+  }
+
+  .mobile-nav-link.active {
+    color: #ccff00;
+    background: #1b2110;
+  }
+
+  .mobile-badges {
+    display: flex;
+    gap: 8px;
+    padding: 10px 12px 0;
+    border-top: 1px solid #252730;
+    margin-top: 5px;
+  }
+}
