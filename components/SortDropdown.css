@@ -1,0 +1,105 @@
+
+/* ==========================================
+   FITLOG - SORT DROPDOWN
+========================================== */
+
+.sort-dropdown {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.sort-dropdown label {
+  color: #92949d;
+  font-size: 10px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.sort-dropdown-select-wrap {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.sort-dropdown-select {
+  width: 86px;
+  height: 29px;
+  padding: 0 25px 0 10px;
+  appearance: none;
+  -webkit-appearance: none;
+  border: 1px solid #292c36;
+  border-radius: 6px;
+  outline: none;
+  background: #13151d;
+  color: #f5f5f5;
+  font-family: inherit;
+  font-size: 10px;
+  cursor: pointer;
+  color-scheme: dark;
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease;
+}
+
+.sort-dropdown-select:hover {
+  border-color: #484b56;
+}
+
+.sort-dropdown-select:focus-visible {
+  border-color: #ccff00;
+  outline: 2px solid rgba(204, 255, 0, 0.2);
+  outline-offset: 2px;
+}
+
+.sort-dropdown-select option {
+  background: #13151d;
+  color: #f5f5f5;
+}
+
+.sort-dropdown-arrow {
+  position: absolute;
+  right: 9px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #a1a1aa;
+  font-size: 10px;
+  line-height: 1;
+  pointer-events: none;
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .sort-dropdown {
+    gap: 5px;
+  }
+
+  .sort-dropdown label {
+    font-size: 9px;
+  }
+
+  .sort-dropdown-select {
+    width: 78px;
+    height: 27px;
+    padding-left: 7px;
+    font-size: 9px;
+  }
+
+  .sort-dropdown-arrow {
+    right: 7px;
+    font-size: 9px;
+  }
+}
+
+@media (max-width: 350px) {
+  .sort-dropdown {
+    gap: 4px;
+  }
+
+  .sort-dropdown-select {
+    width: 72px;
+    padding-left: 6px;
+  }
+}
