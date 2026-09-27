@@ -1,0 +1,663 @@
+
+/* ==========================================
+   FITLOG - MY PLAN
+   Dark UI | Lime Accent | Responsive
+========================================== */
+
+.my-plan-page {
+  min-height: 70vh;
+  padding: 30px 24px 64px;
+  background: #0b0c10;
+  color: #f5f5f5;
+}
+
+.my-plan-container {
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.my-plan-loading {
+  padding: 60px 0;
+  color: #a1a1aa;
+  text-align: center;
+}
+
+/* ==========================================
+   HEADER
+========================================== */
+
+.my-plan-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 18px;
+}
+
+.my-plan-eyebrow {
+  margin: 0 0 7px;
+  color: #ccff00;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.8px;
+}
+
+.my-plan-header h1 {
+  margin: 0;
+  color: #f5f5f5;
+  font-size: clamp(28px, 4vw, 38px);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -1px;
+}
+
+.my-plan-header h1 span {
+  color: #ccff00;
+}
+
+.my-plan-subtitle {
+  margin: 7px 0 0;
+  color: #92949d;
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.my-plan-browse,
+.my-plan-empty-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 34px;
+  padding: 0 13px;
+  border: 1px solid #ccff00;
+  border-radius: 6px;
+  background: #ccff00;
+  color: #0b0c10;
+  text-decoration: none;
+  font-size: 11px;
+  font-weight: 800;
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.my-plan-browse:hover,
+.my-plan-empty-button:hover {
+  transform: translateY(-1px);
+  background: #dcff45;
+}
+
+/* ==========================================
+   METRICS PANEL
+========================================== */
+
+.my-plan-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0;
+  margin-bottom: 18px;
+  padding: 15px 14px;
+  border: 1px solid #242630;
+  border-radius: 10px;
+  background: #13151d;
+}
+
+.my-plan-metric {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 4px;
+  min-width: 0;
+  min-height: 44px;
+  padding: 0 18px;
+  border-right: 1px solid #252731;
+  background: transparent;
+}
+
+.my-plan-metric:first-child {
+  padding-left: 2px;
+}
+
+.my-plan-metric:last-child {
+  border-right: 0;
+}
+
+.metric-icon {
+  display: none;
+}
+
+.my-plan-metric strong {
+  display: block;
+  color: #f5f5f5;
+  font-size: 25px;
+  font-weight: 900;
+  line-height: 1.05;
+}
+
+.my-plan-metric:first-child strong {
+  color: #ccff00;
+}
+
+.my-plan-metric strong small {
+  color: #a1a1aa;
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.my-plan-metric div > span {
+  display: block;
+  order: -1;
+  margin: 0 0 1px;
+  color: #92949d;
+  font-size: 9px;
+  line-height: 1.3;
+}
+
+/* ==========================================
+   TABS
+========================================== */
+
+.my-plan-tabs {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  width: fit-content;
+  margin: 0 0 14px;
+  padding: 4px;
+  border: 1px solid #242630;
+  border-radius: 7px;
+  background: #13151d;
+}
+
+.my-plan-tabs button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  min-height: 25px;
+  padding: 0 12px;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  background: transparent;
+  color: #92949d;
+  cursor: pointer;
+  font-size: 9px;
+  font-weight: 600;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.my-plan-tabs button:hover {
+  color: #f5f5f5;
+}
+
+.my-plan-tabs button.active {
+  border-color: #30333d;
+  background: #20232c;
+  color: #f5f5f5;
+}
+
+.my-plan-tabs button.active::after {
+  display: none;
+}
+
+.my-plan-tabs button span {
+  display: inline-grid;
+  place-items: center;
+  min-width: 17px;
+  height: 17px;
+  padding: 0 4px;
+  border: 1px solid #30333d;
+  border-radius: 50%;
+  background: #171920;
+  color: #bfc0c6;
+  font-size: 9px;
+}
+
+.my-plan-tabs button.active span {
+  border-color: #ccff00;
+  background: #ccff00;
+  color: #0b0c10;
+}
+
+/* ==========================================
+   WORKOUT LIST
+========================================== */
+
+.my-plan-list {
+  display: grid;
+  gap: 10px;
+  width: 100%;
+}
+
+/* ==========================================
+   WORKOUT CARD
+   Image | Workout info | Actions | Cross
+========================================== */
+
+.my-plan-card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  min-width: 0;
+  min-height: 75px;
+  padding: 9px 39px 9px 9px;
+  border: 1px solid #242630;
+  border-radius: 9px;
+  background: #13151d;
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease;
+}
+
+.my-plan-card:hover {
+  border-color: #30333d;
+  background: #151720;
+}
+
+/* ==========================================
+   WORKOUT IMAGE
+========================================== */
+
+.my-plan-card-image {
+  width: 86px;
+  height: 58px;
+  flex: 0 0 86px;
+  overflow: hidden;
+  border-radius: 5px;
+  background: #20232b;
+}
+
+.my-plan-card-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.25s ease;
+}
+
+.my-plan-card:hover .my-plan-card-image img {
+  transform: scale(1.04);
+}
+
+/* ==========================================
+   WORKOUT INFORMATION
+========================================== */
+
+.my-plan-card-content {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-rows: auto auto auto auto;
+  align-items: center;
+  column-gap: 14px;
+  row-gap: 2px;
+  flex: 1;
+  min-width: 0;
+}
+
+/* Muscle group */
+
+.my-plan-card-category {
+  grid-column: 1;
+  grid-row: 1;
+  overflow: hidden;
+  margin: 0;
+  color: #92949d;
+  font-size: 8px;
+  font-weight: 500;
+  line-height: 1.3;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Workout name */
+
+.my-plan-card-content h2 {
+  grid-column: 1;
+  grid-row: 2;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  color: #f5f5f5;
+  font-size: 11px;
+  font-weight: 850;
+  line-height: 1.4;
+  text-overflow: ellipsis;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* Equipment */
+
+.my-plan-card-equipment {
+  grid-column: 1;
+  grid-row: 3;
+  overflow: hidden;
+  margin: 0;
+  color: #92949d;
+  font-size: 8px;
+  line-height: 1.4;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Workout statistics */
+
+.my-plan-card-stats {
+  grid-column: 1;
+  grid-row: 4;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  margin-top: 2px;
+  color: #b5b6bd;
+  font-size: 8px;
+  line-height: 1.4;
+}
+
+.my-plan-card-stats span {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  white-space: nowrap;
+}
+
+/* ==========================================
+   CARD ACTIONS
+========================================== */
+
+.my-plan-card-actions {
+  grid-column: 2;
+  grid-row: 1 / 5;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: nowrap;
+  gap: 7px;
+  margin: 0;
+  padding: 0;
+}
+
+/* View Details */
+
+.my-plan-details {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  min-height: 27px;
+  padding: 0 11px;
+  border: 1px solid #343743;
+  border-radius: 16px;
+  background: transparent;
+  color: #d4d5da;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  font-size: 9px;
+  font-weight: 600;
+  transition:
+    border-color 0.2s ease,
+    color 0.2s ease,
+    background 0.2s ease;
+}
+
+.my-plan-details span {
+  font-size: 9px;
+}
+
+.my-plan-details:hover {
+  border-color: #ccff00;
+  background: rgba(204, 255, 0, 0.05);
+  color: #ccff00;
+}
+
+/* Mark as Done */
+
+.my-plan-done {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  min-height: 27px;
+  padding: 0 10px;
+  border: 1px solid #ccff00;
+  border-radius: 16px;
+  background: #ccff00;
+  color: #0b0c10;
+  white-space: nowrap;
+  cursor: pointer;
+  font-size: 9px;
+  font-weight: 800;
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.my-plan-done:hover:not(:disabled) {
+  transform: translateY(-1px);
+  background: #dcff45;
+}
+
+.my-plan-done.completed {
+  border-color: #3d5a00;
+  background: #253600;
+  color: #ccff00;
+  cursor: default;
+}
+
+.my-plan-done:disabled {
+  opacity: 0.85;
+  cursor: not-allowed;
+}
+
+/* ==========================================
+   REMOVE / CROSS BUTTON
+   On far right of each card
+========================================== */
+
+.my-plan-remove {
+  position: absolute;
+  top: 50%;
+  right: 8px;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 23px;
+  height: 25px;
+  padding: 0;
+  transform: translateY(-50%);
+  border: 1px solid transparent;
+  border-radius: 5px;
+  background: transparent;
+  color: #92949d;
+  cursor: pointer;
+  font-family: Arial, sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1;
+  transition:
+    color 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.my-plan-remove:hover:not(:disabled) {
+  border-color: #492326;
+  background: #492326;
+  color: #ff7777;
+}
+
+.my-plan-remove:focus-visible {
+  outline: 2px solid #ccff00;
+  outline-offset: 2px;
+}
+
+.my-plan-remove:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+/* ==========================================
+   EMPTY STATE
+========================================== */
+
+.my-plan-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 260px;
+  padding: 35px 20px;
+  border: 1px dashed #333640;
+  border-radius: 9px;
+  background: #111319;
+  text-align: center;
+}
+
+.empty-symbol {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  margin-bottom: 17px;
+  border: 1px solid #343743;
+  border-radius: 50%;
+  color: #ccff00;
+  font-size: 27px;
+}
+
+.my-plan-empty .my-plan-eyebrow {
+  margin-bottom: 8px;
+}
+
+.my-plan-empty h2 {
+  margin: 0;
+  color: #f5f5f5;
+  font-size: 20px;
+  font-weight: 850;
+}
+
+.my-plan-empty > p:not(.my-plan-eyebrow) {
+  max-width: 360px;
+  margin: 9px 0 17px;
+  color: #92949d;
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+/* ==========================================
+   ERROR
+========================================== */
+
+.my-plan-error {
+  margin-bottom: 16px;
+  padding: 11px 14px;
+  border: 1px solid #6e3434;
+  border-radius: 7px;
+  background: #2a1719;
+  color: #ffb7b7;
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+/* ==========================================
+   ACCESSIBILITY
+========================================== */
+
+.my-plan-page button:focus-visible,
+.my-plan-page a:focus-visible {
+  outline: 2px solid #ccff00;
+  outline-offset: 3px;
+}
+
+.my-plan-page button:disabled {
+  cursor: not-allowed;
+}
+
+/* ==========================================
+   TABLET
+========================================== */
+
+@media (max-width: 900px) {
+  .my-plan-page {
+    padding: 28px 18px 55px;
+  }
+
+  .my-plan-card {
+    gap: 9px;
+  }
+
+  .my-plan-card-content {
+    column-gap: 8px;
+  }
+
+  .my-plan-card-actions {
+    gap: 5px;
+  }
+
+  .my-plan-details {
+    padding: 0 8px;
+    font-size: 8px;
+  }
+
+  .my-plan-done {
+    padding: 0 8px;
+    font-size: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Buttons vertically stacked on the right */
+  .my-plan-card-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 6px;
+    width: 79px;
+    min-width: 79px;
+    margin: 0;
+    padding: 5px 0 0;
+  }
+
+  .my-plan-details,
+  .my-plan-done {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 79px;
+    min-width: 79px;
+    min-height: 25px;
+    padding: 0 5px;
+    border-radius: 20px;
+    font-size: 7px;
+    white-space: nowrap;
+    box-sizing: border-box;
+  }
+
+  /* Cross stays at the card's top-right */
+  .my-plan-remove {
+    position: absolute;
+    top: 7px;
+    right: 7px;
+    left: auto;
+    z-index: 3;
+    width: 15px;
+    height: 15px;
+    padding: 0;
+    margin: 0;
+    transform: none;
+  }
+}
