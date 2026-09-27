@@ -4,13 +4,22 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
+import { useFitLog } from '@/context/FitLogContext';
 import './navbar.css';
 
 export default function Navbar() {
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
 
+  const { planCount, savedCount, ready } = useFitLog();
+
   const closeMenu = () => setMenuOpen(false);
+
+  const workoutActive = pathname === '/';
+  const planActive = pathname === '/my-plan';
+
+  const currentPlanCount = ready ? planCount : 0;
+  const currentSavedCount = ready ? savedCount : 0;
 
   return (
     <header className="navbar">
@@ -31,14 +40,14 @@ export default function Navbar() {
         <nav className="navbar-menu">
           <Link
             href="/"
-            className={`nav-link ${pathname === '/' ? 'active' : ''}`}
+            className={`nav-link ${workoutActive ? 'active' : ''}`}
           >
             Workout
           </Link>
 
           <Link
             href="/my-plan"
-            className={`nav-link ${pathname === '/my-plan' ? 'active' : ''}`}
+            className={`nav-link ${planActive ? 'active' : ''}`}
           >
             My Plan
           </Link>
@@ -46,12 +55,20 @@ export default function Navbar() {
 
         {/* Desktop Badges */}
         <div className="navbar-badges">
-          <Link href="/my-plan" className="nav-badge plan-badge">
-            Plan <span>0</span>
+          <Link
+            href="/my-plan"
+            className="nav-badge plan-badge"
+            aria-label={`Today's Plan: ${currentPlanCount} workouts`}
+          >
+            Plan <span>{currentPlanCount}</span>
           </Link>
 
-          <Link href="/saved" className="nav-badge saved-badge">
-            Saved <span>0</span>
+          <Link
+            href="/my-plan"
+            className="nav-badge saved-badge"
+            aria-label={`Saved: ${currentSavedCount} workouts`}
+          >
+            Saved <span>{currentSavedCount}</span>
           </Link>
         </div>
 
@@ -62,6 +79,7 @@ export default function Navbar() {
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Toggle navigation menu"
           aria-expanded={menuOpen}
+          aria-controls="mobile-navigation"
         >
           <span></span>
           <span></span>
@@ -70,10 +88,13 @@ export default function Navbar() {
       </div>
 
       {/* Mobile / Tablet Dropdown */}
-      <div className={`mobile-menu ${menuOpen ? 'show' : ''}`}>
+      <div
+        id="mobile-navigation"
+        className={`mobile-menu ${menuOpen ? 'show' : ''}`}
+      >
         <Link
           href="/"
-          className={`mobile-nav-link ${pathname === '/' ? 'active' : ''}`}
+          className={`mobile-nav-link ${workoutActive ? 'active' : ''}`}
           onClick={closeMenu}
         >
           Workout
@@ -81,9 +102,7 @@ export default function Navbar() {
 
         <Link
           href="/my-plan"
-          className={`mobile-nav-link ${
-            pathname === '/my-plan' ? 'active' : ''
-          }`}
+          className={`mobile-nav-link ${planActive ? 'active' : ''}`}
           onClick={closeMenu}
         >
           My Plan
@@ -94,16 +113,18 @@ export default function Navbar() {
             href="/my-plan"
             className="nav-badge plan-badge"
             onClick={closeMenu}
+            aria-label={`Today's Plan: ${currentPlanCount} workouts`}
           >
-            Plan <span>0</span>
+            Plan <span>{currentPlanCount}</span>
           </Link>
 
           <Link
-            href="/saved"
+            href="/my-plan"
             className="nav-badge saved-badge"
             onClick={closeMenu}
+            aria-label={`Saved: ${currentSavedCount} workouts`}
           >
-            Saved <span>0</span>
+            Saved <span>{currentSavedCount}</span>
           </Link>
         </div>
       </div>
